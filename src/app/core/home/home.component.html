@@ -1,0 +1,28 @@
+<div class="container" fxLayout="column-reverse" fxFlex="80%">
+  <div>
+    <form
+      class="example-full-width"
+      fxFlex="100%"
+      [formGroup]="this.formGroup"
+      (submit)="this.promptQuestion()"
+      fxLayoutAlign="space-between center"
+      fxLayout="row"
+    >
+      <app-input-field
+        fxFlex="90%"
+        [formGroup]="this.formGroup"
+      ></app-input-field>
+      <app-send-button></app-send-button>
+    </form>
+  </div>
+  <div class="chat-container" fxLayout="column">
+    <div *ngFor="let questionAnswer of questionAnswers">    
+      <app-question
+        [question]="questionAnswer.question"
+      ></app-question>
+      <app-answer
+        [answer]="questionAnswer.answer"
+      ></app-answer>
+    </div>
+  </div>
+</div>
